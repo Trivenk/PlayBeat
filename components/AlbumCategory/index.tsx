@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text,View,FlatList} from 'react-native';
 import {Album} from '../../types';
-import AlbumComponent from '../Album';
+import AlbumComponent from '../Album';  
 import styles from './styles';
 export type  AlbumCategoryProps = {
     title: string;
