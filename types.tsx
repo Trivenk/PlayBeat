@@ -17,6 +17,7 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
   NotFound: undefined;
+  Album:undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
@@ -29,6 +30,7 @@ export type RootTabParamList = {
   Search: undefined;
   Spotify:undefined;
   Premium:undefined;
+  Album:undefined;
 };
 
 export type Album = {
@@ -36,6 +38,12 @@ export type Album = {
       imageUri: string;
       artistsHeadline: string;
   };
+  export type Song = {
+    id: string,
+    imageUri: string,
+    title: string,
+    artist: string,
+  }
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
   BottomTabScreenProps<RootTabParamList, Screen>,
