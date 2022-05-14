@@ -12,6 +12,19 @@ declare global {
     interface RootParamList extends RootStackParamList {}
   }
 }
+export type BottomTabParamList = {
+  TabOne: undefined;
+  TabTwo: undefined;
+};
+
+export type TabOneParamList = {
+  TabOneScreen: undefined;
+  AlbumScreen: undefined;
+};
+
+export type TabTwoParamList = {
+  TabTwoScreen: undefined;
+};
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
@@ -37,6 +50,9 @@ export type Album = {
       id: string;
       imageUri: string;
       artistsHeadline: string;
+      name:string;
+      by:string;
+      numberOfLikes:number;
   };
   export type Song = {
     id: string,

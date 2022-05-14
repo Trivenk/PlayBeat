@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,Image} from 'react-native';
+import {View,Text,Image, TouchableOpacity} from 'react-native';
 import {Album} from '../../types';
 import styles from './styles';
 export type albumheaderProps = {
@@ -8,9 +8,20 @@ export type albumheaderProps = {
 const AlbumHeader = (props: albumheaderProps) => {
     const {album} = props;
     return(
-        <View>
-            <Image source={{uri:album.imageUri}} style={styles.image} />
-            {/* <Text>By{album.by}</Text> */}
+        <View style={styles.container}>
+            <Image style = {styles.image} source={{uri:album.imageUri}}/>
+            <Text style={styles.name}>{album.name}</Text>
+            <View style={styles.content}>
+                <Text style={styles.by}>By {album.by}</Text>
+                <Text style={styles.likes}>Likes {album.numberOfLikes}</Text>
+            </View>
+            <TouchableOpacity>
+                <View style={styles.button}>
+                    <Text style={styles.buttonText}>PLAY</Text>
+                </View>
+            </TouchableOpacity>
         </View>
     )
 }
+
+export default AlbumHeader;
