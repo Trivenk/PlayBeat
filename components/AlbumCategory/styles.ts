@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     },
     title:{
         margin:10 ,
-        color: 'grey',
+        color: 'white',
         fontSize:24,
         fontWeight: 'bold'
     }
