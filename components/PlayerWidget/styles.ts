@@ -2,55 +2,51 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection:"row",
-        // margin: 15,
-        position:'absolute',
-        backgroundColor:"#131313",
-        bottom:45,
+        position: 'absolute',
+        bottom: 46,
+        backgroundColor: '#131313',
         width: '100%',
-        flex:1,
-        borderWidth:2,
-        borderColor:'#000'
-    },
-    image:{
-        width:75 ,
-        height:75,
-        flex:0.17,
-        marginRight:10,
-    },
-    right:{
-        // justifyContent:'center',
-        // marginLeft:10,
-        flexDirection:'row',
-        // backgroundColor:'red',
-        flex:0.65,
-        alignItems:'center',
-
-    },
-    mainR:{
-        flex:0.83,
-        flexDirection:'row',
-        // backgroundColor:'yellow',
-    },
-    title:{
+        borderWidth: 2,
+        borderColor: 'black',
+      },
+      progress: {
+        height: 3,
+        backgroundColor: '#bcbcbc'
+      },
+      row: {
+        flexDirection: 'row',
+      },
+      image: {
+        width: 75,
+        height: 75,
+        marginRight: 10,
+      },
+      rightContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+      },
+      nameContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+      },
+      iconsContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: 100,
+        justifyContent: 'space-around'
+      },
+      title: {
         color: 'white',
-        fontSize:18,
-        margin:10,
-        fontWeight:"bold",
-    },
-    artist:{
-        color: 'lightgrey',
-        fontSize:18,
-        margin:10,
-
-    },
-    icons:{
-        flex:0.35,
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'space-around',
-        width:100,
-    }
-});
+        fontSize: 18,
+        fontWeight: 'bold',
+        margin: 10,
+      },
+      artist: {
+        color: 'lightgray',
+        fontSize: 18,
+      }
+    })
+    
 
 export default styles;

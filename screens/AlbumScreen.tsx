@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import {Text,View,FlatList, SafeAreaView} from 'react-native';
 import {useRoute} from '@react-navigation/native';
-import { RootTabScreenProps } from '../types';
+// import { RootTabScreenProps } from '../types';
 import SongList from '../components/SongList';
 import data from '../data/albumDetails';
 import AlbumHeader from '../components/AlbumHeader';
-const AlbumScreen = ({ navigation }: RootTabScreenProps<'Album'>) => {
+const AlbumScreen = () => {
     const route = useRoute();
     useEffect(()=>{
 
