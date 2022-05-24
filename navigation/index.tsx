@@ -76,7 +76,7 @@ function BottomTabNavigator() {
         name="Album"
         component={AlbumScreen}
         options={{
-          title: 'Album',
+          title: 'Search',
           tabBarIcon: ({ color }) => <EvilIcons name="search" color={color} size={30} style={{ marginBottom: -3 }} />,
         }}
       />
