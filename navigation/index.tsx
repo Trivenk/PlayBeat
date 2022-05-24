@@ -73,16 +73,16 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <Entypo name="home" color={color} size={30} style={{ marginBottom: -3 }} />
         })}  />
       <BottomTab.Screen
-        name="Search"
-        component={TabTwoScreen}
+        name="Album"
+        component={AlbumScreen}
         options={{
-          title: 'Search',
+          title: 'Album',
           tabBarIcon: ({ color }) => <EvilIcons name="search" color={color} size={30} style={{ marginBottom: -3 }} />,
         }}
       />
       <BottomTab.Screen
         name="Spotify"
-        component={TabTwoScreen}
+        component={AlbumScreen}
         options={{
           title: 'Playlist',
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="music" color={color} size={30} style={{ marginBottom: -3 }} />,

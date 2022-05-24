@@ -59,6 +59,7 @@ export type Album = {
     imageUri: string,
     title: string,
     artist: string,
+    uri: string,
   }
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<

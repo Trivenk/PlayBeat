@@ -6,10 +6,6 @@ import SongList from '../components/SongList';
 import data from '../data/albumDetails';
 import AlbumHeader from '../components/AlbumHeader';
 const AlbumScreen = () => {
-    const route = useRoute();
-    useEffect(()=>{
-
-    },[]);
 
     // const {album} = route.params;
     return(

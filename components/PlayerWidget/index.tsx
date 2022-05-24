@@ -1,37 +1,51 @@
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect, useContext} from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import {Sound} from "expo-av/build/Audio/Sound";
+import { AppContext } from "../../AppContext";
+import data from '../../data/albumDetails';
 const PlayerWidget = () => {
-    const song = {
-        id: '1',
-      imageUri: 'https://cache.boston.com/resize/bonzai-fba/Globe_Photo/2011/04/14/1302796985_4480/539w.jpg',
-      title: 'High on You',
-      artist: 'Helen',
-      uri:"https://s3.amazonaws.com/exp-us-standard/audio/playlist-example/Comfort_Fit_-_03_-_Sorry.mp3",
-    } ;
-    const [isPlaying, setIsPlaying] = useState<Boolean | null>(false);
+    // const [isPlaying, setIsPlaying] = useState<Boolean | null>(true);
     const [sound, setSound] = useState<Sound|null>(null);
     const [postion,setPostion] = useState<number>(0);
     const [duration,setDuration] = useState<number>(0);
-    const onPlayBackStatusUpdate = (status) => {
-        console.log(status)
-        setIsPlaying(status.isPlaying);
+    const [song,setSong] = useState<object|null>(null);
+    const {songId,isPlay,setIsPlay} = useContext(AppContext);
+    const onPlayBackStatusUpdate = (status:any) => {
+        // console.log(status)
+        // setIsPlaying(status.isPlaying);
         setDuration(status.durationMillis);
         setPostion(status.positionMillis);
+        setIsPlay(status.isPlaying);
+        // if(status.durationMillis===status.positionMillis){
+        //     status.durationMillis=0;
+        // }
     }
+    useEffect(() => {
+        data.songs.forEach(element => {
+          if(element.id===songId){
+          setSong(element);
+        
+        }})
+        // console.log(song);
+      }, [songId])
     const getProgress = () => {
         if (sound === null || duration === null || postion === null) {
             return 0;
           }
-        return (postion / duration) * 100;
-        return (postion / duration) * 100;
+        let width = (postion / duration) * 100;
+        if(width==100)
+        {
+            setPostion(0);
+
+        }
+        return width;
     }
     const onPlayPause = async () => {
         if(!sound)
         return;
-        if(isPlaying)
+        if(isPlay)
         {
             await sound.pauseAsync();
         }
@@ -46,15 +60,22 @@ const PlayerWidget = () => {
         }
         const {sound: newSound} = await Sound.createAsync(
             { uri: song.uri },
-            {shouldPlay : isPlaying},
+            {shouldPlay : isPlay},
             onPlayBackStatusUpdate
         )
         setSound(newSound);
 
     }
     useEffect(()=>{
+        if(song){
         playSong();
-    },[]);
+        }
+    },[song]);
+
+    if(!song)
+    {
+        return null;
+    }
     return(
         <View style={styles.container}>
             <View style={[styles.progress,{width:`${getProgress()}%`}]} />
@@ -68,7 +89,7 @@ const PlayerWidget = () => {
             <View style={styles.iconsContainer}>
             <AntDesign name="hearto" size={30} color={"white"}/>
             <TouchableOpacity onPress={onPlayPause}>
-            <FontAwesome name={isPlaying ? 'pause' : 'play'} size={30} color={"white"}/>
+            <FontAwesome name={isPlay ? 'pause' : 'play'} size={30} color={"white"}/>
             </TouchableOpacity>
             </View>
             </View>
