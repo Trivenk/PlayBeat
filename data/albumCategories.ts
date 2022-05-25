@@ -28,7 +28,7 @@ export default [{
     albums: [
       {
         id: '5',
-        imageUri: 'https://cache.boston.com/resize/bonzai-fba/Globe_Photo/2011/04/14/1302796985_4480/539w.jpg',
+        imageUri: 'https://i1.wp.com/fulloaded.com/wp-content/uploads/2021/06/ed-sheeran-perfect.jpg',
         artistsHeadline: 'Taylor Swift, Kygo Objective C, Avicii'
       }, {
         id: '6',
